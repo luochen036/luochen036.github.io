@@ -105,25 +105,28 @@
             padding: 10px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-     .shouye {
-    width: 100%;
-    padding: 0;
-    text-align: center;
-    position: relative;
-}
-.hero-pic {
-    max-width: 1200px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-.hero-text {
-    position: absolute;
-    left: 50%;
-    bottom:40px;
-    transform: translateX(-50%);
-}
+        .shouye {
+            background-image: url("首页.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+            position: relative;
+            opacity: 1;
+            transform: none;
+        }
+        .shouye::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
         .shouye > div {
             position: relative;
             z-index: 2;
