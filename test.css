@@ -616,3 +616,171 @@ footer {
         width: 100%;
     }
 }
+
+
+/* ========== 移动端适配 ========== */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #e8eaf0;
+    margin: 5px 0;
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .whole {
+        padding: 0 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .daohang {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(5, 6, 10, 0.96);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(140, 160, 255, 0.25);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+        padding: 8px 0 12px;
+    }
+
+    .daohang.open {
+        display: flex;
+    }
+
+    .daohang li {
+        text-align: center;
+    }
+
+    .daohang a {
+        display: block;
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+
+    section {
+        padding: 80px 0;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .shouye h1 {
+        font-size: 32px;
+        letter-spacing: 0.14em;
+    }
+
+    .shouye p {
+        font-size: 14px;
+        padding: 0 8px;
+    }
+
+    .home-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        padding: 13px 24px;
+    }
+
+    .about-content {
+        gap: 32px;
+    }
+
+    .dept-card {
+        padding: 24px;
+    }
+
+    .join-card {
+        min-width: calc(100% - 20px);
+    }
+
+    .join-card-header {
+        padding: 18px;
+    }
+
+    .join-card.active .join-card-body {
+        padding: 16px 18px 20px;
+    }
+
+    .award-item {
+        padding: 20px;
+    }
+
+    .photo-wrap img {
+        width: 100%;
+    }
+
+    .contact-item {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 36px;
+    }
+
+    .shouye h1 {
+        font-size: 26px;
+        letter-spacing: 0.1em;
+    }
+
+    .shouye h2 {
+        font-size: 14px;
+        letter-spacing: 0.12em;
+    }
+
+    .daohang a {
+        font-size: 14px;
+        padding: 13px 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .join-card-body p {
+        font-size: 14px;
+    }
+
+    .award-item h3 {
+        font-size: 16px;
+    }
+}

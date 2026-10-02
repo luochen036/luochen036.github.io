@@ -11,7 +11,10 @@
     <nav>
         <div class="whole">
             <div class="logo"><img src="logo.png" alt="BIGC_ACM Team Logo"></div>
-            <ul class="daohang">
+            <button class="menu-toggle" id="menuToggle" aria-label="展开菜单">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="daohang" id="daohang">
                 <li><a href="#shouye">欢迎</a></li>
                 <li><a href="#about">队伍介绍</a></li>
                 <li><a href="#teams">部门介绍</a></li>
@@ -298,6 +301,21 @@
                 }
             })
         })
+
+        const menuToggle = document.getElementById('menuToggle');
+        const daohang = document.getElementById('daohang');
+        if (menuToggle && daohang) {
+            menuToggle.addEventListener('click', function () {
+                daohang.classList.toggle('open');
+                menuToggle.classList.toggle('active');
+            });
+            daohang.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function () {
+                    daohang.classList.remove('open');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
