@@ -135,12 +135,20 @@ nav .whole {
     color: var(--ink);
     font-weight: 600;
     letter-spacing: 0.04em;
+    min-width: 0;
 }
 
 .logo img {
     height: 44px;
     width: auto;
+    flex: none;
     filter: drop-shadow(0 6px 14px rgba(31, 127, 196, 0.22));
+}
+
+.logo span {
+    font-size: 20px;
+    line-height: 1.3;
+    min-width: 0;
 }
 
 .daohang {
@@ -461,6 +469,9 @@ section + section::before {
     padding-bottom: 24px;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-2) var(--accent-soft);
+    /* 滑动结束吸附到卡片边缘 */
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
 }
 
 .join-scroll-container::-webkit-scrollbar {
@@ -486,6 +497,7 @@ section + section::before {
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: all 0.4s ease;
+    scroll-snap-align: start;
 }
 
 .join-card::after {
@@ -789,10 +801,6 @@ section[id] {
         font-size: 42px;
     }
 
-    .join-card {
-        min-width: calc(100% - 40px);
-    }
-
     .photo-wrap img {
         width: 100%;
     }
@@ -831,20 +839,36 @@ section[id] {
 }
 
 /* ========== 手机 ========== */
-@media (max-width: 1024px) {
+/* 窄屏（手机 / 平板竖屏）：避免 1024px 桌面窗口被卷入 */
+@media (max-width: 1023.98px) {
     /* 首屏图约 1.82:1，窄屏改为等比完整展示，避免两侧图案被裁掉 */
     .shouye {
-        min-height: auto;
-        aspect-ratio: 1.82 / 1;
+        min-height: 62vh;
+        aspect-ratio: auto;
         background-size: contain;
         background-position: center;
         padding: 70px 0 0;
+    }
+
+    /* 卡片改为“露出一角”，提示可以左右滑动（68 = 目标露出 46 + 卡片间距 22） */
+    .join-card {
+        min-width: clamp(240px, calc(100% - 68px), 420px);
     }
 }
 
 @media (max-width: 768px) {
     .whole {
         padding: 0 16px;
+    }
+
+    /* 原 minmax(320px) 在 320px 屏上撑宽页面；用 min(240px, 100%) 兜底 */
+    .awards-list {
+        grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+    }
+
+    .awards-list > *,
+    .dept-card {
+        min-width: 0;
     }
 
     .menu-toggle {
@@ -926,10 +950,6 @@ section[id] {
         padding: 24px;
     }
 
-    .join-card {
-        min-width: calc(100% - 20px);
-    }
-
     .join-card-header {
         padding: 18px;
     }
@@ -961,8 +981,8 @@ section[id] {
     }
 
     .logo span {
-        font-size: 15px !important;
-        line-height: 1.3;
+        font-size: 16px;
+        letter-spacing: 0.02em;
     }
 
     .shouye h1 {
