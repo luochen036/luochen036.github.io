@@ -1036,7 +1036,7 @@ section[id] {
 
 /* ========== 招新群二维码 ========== */
 .qrcode-img {
-    width: 150px;
+    width: 140px;
     height: auto;
     margin-top: 16px;
     border-radius: var(--radius);
@@ -1054,4 +1054,19 @@ section[id] {
     margin-top: 8px;
     font-size: 13px;
     color: var(--muted);
+}
+
+
+/* ========== 二维码移动端缩小 ========== */
+@media (max-width: 768px) {
+    .qrcode-img {
+        width: 120px;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .qrcode-img {
+        width: 110px;
+    }
 }
