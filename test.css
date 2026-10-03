@@ -1032,3 +1032,26 @@ section[id] {
         transition-duration: 0.001ms !important;
     }
 }
+
+
+/* ========== 招新群二维码 ========== */
+.qrcode-img {
+    width: 150px;
+    height: auto;
+    margin-top: 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qrcode-img:hover {
+    transform: scale(1.04);
+    box-shadow: var(--shadow-md);
+}
+
+.qrcode-tip {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--muted);
+}
